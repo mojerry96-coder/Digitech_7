@@ -1,0 +1,143 @@
+/* ==========================================================
+   OPENER — three partner logos fade in one at a time while the
+   row re-centres, then the title and Begin. ~4.5 s, skippable.
+   Self-contained: brand tokens are scoped to .intro, and the
+   host app's own variables override them if already defined.
+   ========================================================== */
+.intro {
+  --intro-navy: var(--navy, #09314F);
+  --intro-cream: var(--cream, #FCEBCC);
+  --intro-amber: var(--amber, #EE9B01);
+  --intro-brown: var(--brown, #472E00);
+  --intro-ease: var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+  --intro-font-display: var(--font-display, "Afacad", system-ui, sans-serif);
+  --intro-font-body: var(--font-body, "Manrope", system-ui, sans-serif);
+  --motif-clear: 100%;               /* set by intro.js: right edge of the content column */
+
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; place-items: center;
+  padding: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 40%, #0C3F66 0%, var(--intro-navy) 52%, #06243C 100%);
+  color: #fff;
+  font-family: var(--intro-font-body);
+  transition: opacity 650ms var(--intro-ease);
+}
+.intro.out { opacity: 0; pointer-events: none; }
+.intro.gone { display: none; }
+
+/* Brand motif: the MIVA chevron, oversized and low-contrast, as on the deck cover.
+   The mask keeps it clear of the logos and title at every viewport width:
+   fully transparent up to the content column's right edge, then fading in. */
+.intro-motif {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+  opacity: 0; transition: opacity 1600ms var(--intro-ease);
+  -webkit-mask-image: linear-gradient(to right, transparent var(--motif-clear), #000 calc(var(--motif-clear) + 120px));
+          mask-image: linear-gradient(to right, transparent var(--motif-clear), #000 calc(var(--motif-clear) + 120px));
+}
+.intro-motif-art {
+  position: absolute; top: 50%; right: -14%;
+  width: min(980px, 105vh); height: auto; aspect-ratio: 1;
+  transform: translateY(-50%);
+}
+.intro.st-line .intro-motif { opacity: 0.7; }
+
+.intro-inner { position: relative; display: grid; justify-items: center; text-align: center; max-width: 100%; }
+
+.intro-tagline {
+  margin: clamp(26px, 4vh, 40px) 0 0;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--intro-cream);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 700ms var(--intro-ease), transform 700ms var(--intro-ease);
+}
+.intro.st-line .intro-tagline { opacity: 0.85; transform: none; }
+
+/* The row slides so that whichever logos have arrived stay centred on screen.
+   Logos never travel on their own, so a newcomer can never land on the one before it. */
+.intro-logos {
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(24px, 4.2vw, 46px);
+  transform: translateX(var(--shift, 0px));
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.intro-logo {
+  display: block;
+  opacity: 0;
+  transform: scale(1.1);
+  filter: blur(8px);
+  transition:
+    opacity 700ms ease-out,
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 700ms ease-out;
+}
+.intro-logo img { display: block; height: auto; }
+.lg-ekiti img { width: clamp(46px, 7vw, 74px); }
+.lg-miva img  { width: clamp(96px, 15vw, 164px); }
+.lg-tof img   { width: clamp(70px, 11vw, 118px); }
+
+/* Entry runs opacity, scale and blur together, as specified */
+.intro-logo.in { opacity: 1; transform: scale(1); filter: blur(0); }
+
+.intro-rule {
+  flex: none;
+  width: 1px; height: clamp(30px, 5vw, 52px);
+  background: rgba(255, 255, 255, 0.34);
+  opacity: 0; transform: scaleY(0.4);
+  transition: opacity 600ms var(--intro-ease), transform 700ms var(--intro-ease);
+}
+.intro.st-line .intro-rule { opacity: 1; transform: scaleY(1); }
+
+.intro-title {
+  margin: clamp(14px, 2.2vh, 22px) 0 0;
+  font-family: var(--intro-font-display); font-weight: 650;
+  font-size: clamp(40px, 6.4vw, 72px); line-height: 1; letter-spacing: -0.025em;
+  color: #fff; text-transform: uppercase; text-wrap: balance;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 800ms var(--intro-ease), transform 900ms var(--intro-ease);
+}
+.intro-title .accent { color: var(--intro-amber); }
+.intro-sub {
+  margin: 16px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(214, 228, 250, 0.72);
+  opacity: 0; transition: opacity 800ms var(--intro-ease);
+}
+.intro.st-title .intro-title { opacity: 1; transform: none; }
+.intro.st-title .intro-sub { opacity: 1; transition-delay: 200ms; }
+
+/* Begin: amber is the action colour on navy; brown text for contrast (white on amber fails) */
+.intro-begin {
+  margin-top: clamp(30px, 4.4vh, 46px);
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 26px; border: 0; border-radius: 999px;
+  background: var(--intro-amber); color: var(--intro-brown);
+  font: 700 16px/1 var(--intro-font-body); cursor: pointer;
+  opacity: 0; transform: translateY(8px); pointer-events: none;
+  transition: opacity 700ms var(--intro-ease), transform 700ms var(--intro-ease), background-color 200ms var(--intro-ease);
+}
+.intro-begin svg { width: 18px; height: 18px; flex: none; }
+.intro-begin:hover { background: #FFB01F; }
+.intro-begin:focus-visible { outline: 3px solid var(--intro-cream); outline-offset: 4px; }
+.intro.st-begin .intro-begin { opacity: 1; transform: none; pointer-events: auto; }
+
+.intro-skip {
+  position: absolute; right: 24px; bottom: max(24px, env(safe-area-inset-bottom));
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 44px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.24); background: transparent;
+  color: rgba(214, 228, 250, 0.8); font: 600 14px var(--intro-font-body); cursor: pointer;
+  transition: opacity 300ms var(--intro-ease), color 200ms var(--intro-ease);
+}
+.intro-skip:hover { color: #fff; }
+.intro-skip:focus-visible { outline: 2px solid var(--intro-cream); outline-offset: 3px; }
+.intro-skip kbd {
+  font-family: var(--intro-font-body); font-size: 11px; padding: 2px 6px; border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.28); color: rgba(214, 228, 250, 0.7); background: transparent;
+}
+.intro.st-begin .intro-skip { opacity: 0; pointer-events: none; visibility: hidden; transition: opacity 300ms var(--intro-ease), visibility 0s 300ms; }
+
+/* Reduced motion: the finished frame, with no movement at all */
+@media (prefers-reduced-motion: reduce) {
+  .intro, .intro *, .intro *::before, .intro *::after { transition: none !important; animation: none !important; }
+}

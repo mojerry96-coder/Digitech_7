@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- flat folder in the macOS manner, brand sky blue -->
+  <path d="M6 16a4 4 0 0 1 4-4h13l5 5h26a4 4 0 0 1 4 4v4H6z" fill="#4E98D3"/>
+  <rect x="6" y="21" width="52" height="33" rx="5" fill="#7DBBEA"/>
+  <rect x="6" y="21" width="52" height="3" rx="1.5" fill="#A7D1F2"/>
+</svg>

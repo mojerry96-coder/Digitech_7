@@ -1,0 +1,16 @@
+{
+  "name": "review-desk-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "assets": "node make-assets.mjs",
+    "render": "node render-walkthrough.mjs",
+    "verify": "node verify.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/afacad": "^5.3.0",
+    "@fontsource/afacad": "5.3.0",
+    "@fontsource/manrope": "5.3.0",
+    "puppeteer-core": "25.13.0"
+  }
+}

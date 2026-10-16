@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Review Desk app icon: flat navy squircle, white handout, amber lens -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#09314F"/>
+  <path d="M22 15h14l8 8v24a2 2 0 0 1-2 2H22a2 2 0 0 1-2-2V17a2 2 0 0 1 2-2z" fill="#FFFFFF"/>
+  <path d="M36 15v8h8" fill="#D9E3EC"/>
+  <path d="M25 27h12M25 32h9M25 37h6" stroke="#09314F" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="40" cy="40" r="7" fill="none" stroke="#EE9B01" stroke-width="3.4"/>
+  <path d="M45.2 45.2l5.3 5.3" stroke="#EE9B01" stroke-width="3.6" stroke-linecap="round"/>
+</svg>

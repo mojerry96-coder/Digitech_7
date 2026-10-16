@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review Desk</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+  <!-- Opener: partner logos line up, then the title and Begin (~4.5 s, Skip / Esc). Begin hands over to the walkthrough. -->
+  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-label="Audit an AI Answer" data-host="ReviewDesk">
+    <div class="intro-motif" aria-hidden="true"><img class="intro-motif-art" src="assets/logos/chevrons.svg" alt=""></div>
+    <div class="intro-inner">
+      <div class="intro-logos">
+        <span class="intro-logo lg-ekiti"><img src="assets/logos/ekiti.svg" alt="Government of Ekiti State, Nigeria" /></span>
+        <span class="intro-rule" aria-hidden="true"></span>
+        <span class="intro-logo lg-miva"><img src="assets/logos/miva.svg" alt="MIVA Open University" /></span>
+        <span class="intro-rule" aria-hidden="true"></span>
+        <span class="intro-logo lg-tof"><img src="assets/logos/tof.svg" alt="Tunji Olowolafe Foundation" /></span>
+      </div>
+      <p class="intro-tagline">Study. Anywhere. Anyone. Anytime.</p>
+      <h1 class="intro-title">Audit an AI <span class="accent">Answer</span></h1>
+      <p class="intro-sub">AI Literacy · Unit 2.6</p>
+      <button class="intro-begin" type="button">Begin <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <button class="intro-skip" type="button">Skip <kbd>Esc</kbd></button>
+  </div>
+
+  <!-- Orientation: silent walkthrough before the desktop task (not an assessed scene) -->
+  <section id="orientation" class="orientation" aria-label="Walkthrough" hidden>
+    <video id="walkthrough" class="orientation-video" playsinline preload="auto"
+           poster="assets/media/review-desk-walkthrough-poster.webp?v=ifeoma-20261016"
+           aria-label="Narrated walkthrough of Review Desk">
+      <source src="assets/media/review-desk-walkthrough.mp4?v=ifeoma-20261016" type="video/mp4">
+    </video>
+    <p id="orientation-caption" class="orientation-caption" aria-hidden="true" hidden></p>
+    <button id="orientation-play" class="orientation-play" type="button" hidden>
+      <span data-icon="play" data-size="20"></span>
+      <span>Play</span>
+    </button>
+    <div class="orientation-tools">
+      <button id="orientation-sound" class="orientation-tool" type="button" aria-pressed="true">
+        <span data-icon="sound" data-size="18"></span>
+        <span>Sound on</span>
+      </button>
+      <button id="orientation-cc" class="orientation-tool" type="button" aria-pressed="false">
+        <span data-icon="cc" data-size="18"></span>
+        <span>Captions</span>
+      </button>
+    </div>
+    <button id="orientation-start" class="primary-button orientation-start" type="button">Start review</button>
+  </section>
+
+  <div id="desktop-root" class="desktop" hidden>
+    <div class="wallpaper" aria-hidden="true"></div>
+
+    <header class="menubar">
+      <nav class="menubar-left" aria-label="Menu bar">
+        <img class="menubar-mark" src="assets/icons/app.svg" alt="" width="16" height="16">
+        <strong class="menubar-app">Review Desk</strong>
+        <div class="menu">
+          <button class="menu-title" type="button" aria-haspopup="menu" aria-expanded="false" data-menu-open="file">File</button>
+          <div class="menu-panel" role="menu" data-menu-panel="file" hidden>
+            <button type="button" role="menuitem" data-menu="import">Import Document…<kbd>⌘O</kbd></button>
+            <button type="button" role="menuitem" data-menu="close">Close Window<kbd>⌘W</kbd></button>
+          </div>
+        </div>
+        <div class="menu">
+          <button class="menu-title" type="button" aria-haspopup="menu" aria-expanded="false" data-menu-open="help">Help</button>
+          <div class="menu-panel" role="menu" data-menu-panel="help" hidden>
+            <button type="button" role="menuitem" data-menu="walkthrough">Replay walkthrough</button>
+          </div>
+        </div>
+      </nav>
+      <div class="menubar-right" aria-hidden="true">
+        <span data-icon="wifi" data-size="16"></span>
+        <span id="clock" class="clock">Wed 15 Oct 09:41</span>
+      </div>
+    </header>
+
+    <ul class="desktop-icons" role="listbox" aria-label="Desktop">
+      <li>
+        <button id="shortcut-app" class="desktop-icon" type="button" role="option" aria-selected="false" data-open="app">
+          <img class="desktop-icon-art" src="assets/icons/app.svg" alt="" width="60" height="60">
+          <span class="desktop-icon-label">Review Desk</span>
+        </button>
+      </li>
+      <li>
+        <button id="shortcut-handouts" class="desktop-icon" type="button" role="option" aria-selected="false" data-open="handouts">
+          <img class="desktop-icon-art" src="assets/icons/folder.svg" alt="" width="60" height="60">
+          <span class="desktop-icon-label">Handouts</span>
+        </button>
+      </li>
+    </ul>
+
+    <section id="app-window" class="app-window" aria-label="Review Desk" hidden>
+      <header class="titlebar">
+        <div class="traffic-lights">
+          <button class="window-control light-close" type="button" data-win="close" aria-label="Close">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5"/></svg>
+          </button>
+          <button class="window-control light-min" type="button" data-win="minimise" aria-label="Minimise">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 6h6"/></svg>
+          </button>
+          <button class="window-control light-zoom" type="button" data-win="maximise" aria-label="Zoom">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3.6 8.4V4.6l3.8 3.8zM8.4 3.6v3.8L4.6 3.6z" fill="currentColor" stroke="none"/></svg>
+          </button>
+        </div>
+        <span class="titlebar-title">Review Desk</span>
+      </header>
+      <div id="doc-toolbar" class="document-toolbar" hidden>
+        <span id="toolbar-icon" class="toolbar-icon" data-icon="doc" data-size="20"></span>
+        <span id="toolbar-name" class="toolbar-name"></span>
+        <button id="toolbar-import" class="icon-button" type="button" aria-label="Import document" title="Import document">
+          <span data-icon="import" data-size="20"></span>
+        </button>
+      </div>
+      <main id="workspace" class="workspace-host"></main>
+    </section>
+
+    <nav class="dock" aria-label="Dock">
+      <div class="dock-shelf">
+        <button id="task-handouts" class="dock-item" type="button" aria-label="Handouts" title="Handouts">
+          <img src="assets/icons/folder.svg" alt="" width="52" height="52">
+        </button>
+        <span class="dock-divider" aria-hidden="true"></span>
+        <button id="task-app" class="dock-item" type="button" aria-label="Review Desk" title="Review Desk">
+          <img src="assets/icons/app.svg" alt="" width="52" height="52">
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Single modal layer: desktop < application < backdrop < dialog -->
+  <div id="modal-layer" class="modal-layer" hidden>
+    <div class="modal-backdrop"></div>
+    <div id="modal-slot"></div>
+  </div>
+
+  <div id="live" class="visually-hidden" aria-live="polite"></div>
+
+  <script src="assets/media/review-desk-walkthrough-captions.js?v=ifeoma-20261016"></script>
+  <script src="icons.js"></script>
+  <script src="data.js"></script>
+  <script src="dotcloud.js"></script>
+  <script src="app.js"></script>
+  <script src="intro.js"></script>
+</body>
+</html>

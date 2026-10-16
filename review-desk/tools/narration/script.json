@@ -1,0 +1,15 @@
+{
+  "voice": "Ifeoma Odumodu - Nigerian Narrator (ElevenLabs reGkImJki7uJOve2F4A0), eleven_multilingual_v2, stability 0.6, similarity 0.8 — the same voice and settings as the other MIVA walkthroughs",
+  "files": "Put one audio file per line in this folder as n1.mp3 … n9.mp3 (or .wav). Missing files fall back to estimated timings and a silent beat.",
+  "lines": [
+    { "id": "n1", "beat": "welcome", "text": "Welcome to the Review Desk. A colleague has drafted four handouts with AI, and you will audit them before they reach students." },
+    { "id": "n2", "beat": "import", "text": "Open Review Desk, choose Import, and pick a handout from your Handouts folder." },
+    { "id": "n3", "beat": "scan", "text": "Each file is scanned first. Scanning only loads the text; it does not check anything." },
+    { "id": "n4", "beat": "accuracy", "text": "Run Check accuracy to see whether the facts hold up." },
+    { "id": "n5", "beat": "representation", "text": "Then run Check representation, to see whose contexts and examples are included. The two checks are separate, and you need both." },
+    { "id": "n6", "beat": "verdict", "text": "Now make your own call. Choose the verdict that fits both findings, and save it." },
+    { "id": "n7", "beat": "fix", "text": "Where a handout needs work, write a specific fix. Name the example, or state the corrected fact." },
+    { "id": "n8", "beat": "report", "text": "Your audit report keeps every verdict and fix exactly as you recorded them." },
+    { "id": "n9", "beat": "close", "text": "Take your time; nothing here is timed. When you are ready, choose Start review." }
+  ]
+}

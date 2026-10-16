@@ -1,0 +1,7 @@
+{
+  "name": "fix-the-prompt-opener-tools",
+  "private": true,
+  "type": "module",
+  "scripts": { "verify": "node verify-opener.mjs ../preview.html" },
+  "devDependencies": { "puppeteer-core": "25.13.0" }
+}

@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "review-desk",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8080", "--bind", "127.0.0.1", "--directory", "review-desk"],
+      "port": 8080
+    },
+    {
+      "name": "fix-the-prompt-opener",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "exec python3 -m http.server \"${PORT:-8081}\" --bind 127.0.0.1 --directory fix-the-prompt-opener"],
+      "port": 8081,
+      "autoPort": true
+    }
+  ]
+}
